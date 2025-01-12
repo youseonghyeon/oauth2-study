@@ -13,7 +13,9 @@ public class SecurityConfig {
         System.out.println("SecurityFilterChain initialized1");
         http
                 .authorizeHttpRequests(req -> req.anyRequest().authenticated())
-                .httpBasic(httpBasic -> httpBasic
+//                .httpBasic(httpBasic -> httpBasic
+//                        .authenticationEntryPoint(new CustomAuthenticationEntryPoint()))
+                .exceptionHandling(exceptionHandling -> exceptionHandling
                         .authenticationEntryPoint(new CustomAuthenticationEntryPoint()));
         return http.build();
     }
